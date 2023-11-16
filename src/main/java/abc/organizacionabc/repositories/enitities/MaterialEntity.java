@@ -8,17 +8,14 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name="persona")
 @Data
-public class PersonaEntity {
+@Table(name="material")
+public class MaterialEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nombre;
-    private String apellidos;
-    private String telefono;
-    private String email;
-    
+    private String tipo_material;
 }
