@@ -1,13 +1,15 @@
 package abc.organizacionabc.repositories.enitities;
 
-import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -23,6 +25,16 @@ public class MaterialEntity{
     private String nombre;
     private String tipo_material;
 
-    @OneToMany(mappedBy = "material",cascade = CascadeType.ALL)
-    private List<EnvioEntity> envios;
+    @ManyToMany(
+        mappedBy = "material",
+        cascade ={
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+        })
+    @JoinTable(
+        name = "material_envio",
+        joinColumns={@JoinColumn(name = "id_material")},
+        inverseJoinColumns={@JoinColumn(name="id_envio")}
+    )
+    private Set<EnvioEntity> envios;
 }

@@ -28,4 +28,5 @@ public class CuotasEntity {
     @ManyToOne()
     @JsonIgnoreProperties("id_socio")
     private SocioEntity id_socio;
+    
 }
