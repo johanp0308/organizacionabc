@@ -2,12 +2,15 @@ package abc.organizacionabc.repositories.enitities;
 
 import java.sql.Date;
 
+import org.springframework.boot.autoconfigure.batch.BatchProperties.Job;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -26,7 +29,7 @@ public class CuotasEntity {
     private float cargo_anual;
     
     @ManyToOne()
-    @JsonIgnoreProperties("id_socio")
-    private SocioEntity id_socio;
+    @JoinColumn(name = "socio_id")
+    private SocioEntity socio;
     
 }

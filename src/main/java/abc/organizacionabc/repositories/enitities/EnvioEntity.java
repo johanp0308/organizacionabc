@@ -1,14 +1,18 @@
 package abc.organizacionabc.repositories.enitities;
 
 import java.util.Date;
-import java.util.List;
+// import java.util.List;
+import java.util.Set;
 
-import jakarta.persistence.CascadeType;
+// import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+// import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 
@@ -21,13 +25,17 @@ public class EnvioEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date fecha_envio;
-    private String direccionDestino;
+    private String direccion_destino;
 
-    @OneToMany(mappedBy = "envio", cascade=CascadeType.ALL)
-    private List<VoluntarioEntity> voluntarios;
+    @ManyToMany(mappedBy = "envios")
+    private Set<VoluntarioEntity> voluntarios;
     
-    @OneToMany(mappedBy = "envio",cascade = CascadeType.ALL)
-    private List<MaterialEntity> materiales;
+    @ManyToMany(mappedBy = "envios")
+    private Set<MaterialEntity> materiales;
 
+    @ManyToOne()
+    @JoinColumn(name="refugio_id")
+    private RefugioEntity refugio;
 }
+
 

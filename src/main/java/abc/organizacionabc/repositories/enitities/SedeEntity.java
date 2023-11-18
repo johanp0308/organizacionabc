@@ -3,8 +3,12 @@ package abc.organizacionabc.repositories.enitities;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.annotations.CollectionId;
+
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -42,7 +46,7 @@ public class SedeEntity {
     @OneToMany(mappedBy = "sede",cascade=CascadeType.ALL)
     private List<SocioEntity> socios;
 
-    @OneToOne
-    @JoinColumn(name = "director")
-    private PersonaEntity director;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "persona_id")
+    private PersonaEntity persona;
 }

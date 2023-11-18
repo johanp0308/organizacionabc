@@ -26,15 +26,14 @@ public class MaterialEntity{
     private String tipo_material;
 
     @ManyToMany(
-        mappedBy = "material",
         cascade ={
             CascadeType.PERSIST,
             CascadeType.MERGE
-        })
+    })
     @JoinTable(
         name = "material_envio",
-        joinColumns={@JoinColumn(name = "id_material")},
-        inverseJoinColumns={@JoinColumn(name="id_envio")}
+        joinColumns={@JoinColumn(name = "material_id",referencedColumnName = "id")},
+        inverseJoinColumns={@JoinColumn(name="envio_id",referencedColumnName = "id")}
     )
     private Set<EnvioEntity> envios;
 }
