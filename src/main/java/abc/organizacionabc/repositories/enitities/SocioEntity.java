@@ -26,6 +26,7 @@ public class SocioEntity {
 
     @ManyToOne()
     @JoinColumn(name = "persona_id")
+    
     private PersonaEntity persona;
 
     @ManyToOne()

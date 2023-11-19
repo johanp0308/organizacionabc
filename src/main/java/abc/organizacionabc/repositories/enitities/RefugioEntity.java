@@ -20,6 +20,8 @@ public class RefugioEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String nombre_refugio;
+
     @OneToMany(mappedBy = "refugio",cascade = CascadeType.ALL)
     private List<EnvioEntity> envios;
 }
