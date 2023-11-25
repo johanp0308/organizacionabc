@@ -42,7 +42,8 @@ public class SedeEntity {
     @OneToMany(mappedBy = "sede",cascade=CascadeType.ALL)
     private List<SocioEntity> socios;
 
+    @JoinColumn(name = "director_id")
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "persona_id")
-    private PersonaEntity persona;
+    private DirectorEntity director;
+
 }

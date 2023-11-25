@@ -9,4 +9,5 @@ public class CuotasDTO {
     private Long id;
     private Date fecha_pago;
     private float cargo_anual;
+    private Long socioId;
 }
