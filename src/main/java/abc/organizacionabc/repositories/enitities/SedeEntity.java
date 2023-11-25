@@ -3,10 +3,7 @@ package abc.organizacionabc.repositories.enitities;
 import java.util.List;
 import java.util.Set;
 
-import org.hibernate.annotations.CollectionId;
-
 import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +21,6 @@ import lombok.Data;
 @Data
 @Table(name="sede")
 public class SedeEntity {
-    
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;

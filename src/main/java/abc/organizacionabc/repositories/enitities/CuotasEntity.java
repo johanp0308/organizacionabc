@@ -2,10 +2,6 @@ package abc.organizacionabc.repositories.enitities;
 
 import java.sql.Date;
 
-import org.springframework.boot.autoconfigure.batch.BatchProperties.Job;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

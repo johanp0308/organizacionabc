@@ -19,7 +19,6 @@ public class RefugioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String nombre_refugio;
 
     @OneToMany(mappedBy = "refugio",cascade = CascadeType.ALL)
