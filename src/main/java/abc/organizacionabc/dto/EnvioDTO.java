@@ -9,4 +9,5 @@ public class EnvioDTO {
     private Long id;
     private Date fecha_envio;
     private String direccion_destino;
+    private Long refugioId;
 }

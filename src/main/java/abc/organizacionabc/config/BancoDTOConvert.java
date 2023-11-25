@@ -1,6 +1,7 @@
 
 package abc.organizacionabc.config;
 
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ public class BancoDTOConvert {
     @Autowired
     private ModelMapper dbm; 
 
-    public BancoDTO convertBanctoDTO(BancoEntity banco){
+    public BancoDTO convertBancoDTO(BancoEntity banco){
         return dbm.map(banco,BancoDTO.class);
     }
 

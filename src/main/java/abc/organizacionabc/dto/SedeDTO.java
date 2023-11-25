@@ -9,4 +9,5 @@ public class SedeDTO {
     private String direccion;
     private String pais;
     private String estado;
+    private Long directorId;
 }
