@@ -9,11 +9,13 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.Data;
 
 @Entity
 @Table(name="socio")
+@Data
 public class SocioEntity extends PersonaEntity{
-
+    
     @ManyToOne()
     @JoinColumn(name = "sede_id")
     private SedeEntity sede;
